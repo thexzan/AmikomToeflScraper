@@ -8,6 +8,10 @@ const fs = require("fs");
   const data = await scraper.getData(url);
   // data.reverse();
 
+  if (!fs.existsSync(outputfile)) {
+    // WRITE HEADER OF OUTPUT FILE
+    fs.writeFileSync(outputfile, `"kode","nim","nama","skor","tanggal_test"`);
+  }
   let baris = "";
   data.forEach(item => {
     baris =
