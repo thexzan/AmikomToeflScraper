@@ -14,9 +14,7 @@ const fs = require("fs");
   }
   let baris = "";
   data.forEach(item => {
-    baris =
-      baris +
-      `\n"${item.kode}","${item.nim}","${item.nama}","${item.skor}","${item.tanggalTest}"`;
+    baris += `\n"${item.kode}","${item.nim}","${item.nama}","${item.skor}","${item.tanggalTest}"`;
   });
   fs.appendFileSync("data.csv", baris);
 })();
