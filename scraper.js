@@ -7,10 +7,17 @@ const scraper = {
     const response = await axios.get(url);
     const $ = cheerio.load(response.data);
 
+    let hasilTest = [];
     $("tbody tr").each((i, element) => {
       const kode = $(element).find("td").eq(0).text();
-      debugger;
+      const nim = $(element).find("td").eq(1).text();
+      const nama = $(element).find("td").eq(2).text();
+      const skor = $(element).find("td").eq(3).text();
+      const tanggalTest = $(element).find("td").eq(4).text();
+      hasilTest.push({ kode, nim, nama, skor, tanggalTest });
     });
+
+    console.log(hasilTest);
 
     debugger;
     let result = {};
