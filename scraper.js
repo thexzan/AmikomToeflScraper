@@ -2,9 +2,10 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 const scraper = {
-  getData: async url => {
-    // THIS ONLY GET THE WEBPAGE
-    const response = await axios.get(url);
+  getData: async () => {
+    const response = await axios.get(
+      "https://docs.google.com/spreadsheets/d/e/2PACX-1vSumovlj0o3Bzd2S0nR3AdusPC1qm2AEKvfo8bpfvjwxOGVew1b_OUKKg-QAV08J1yGSUTp8X-iA29s/pubhtml?gid=0&single=true&widget=false&headers=false&chrome=false"
+    );
     const $ = cheerio.load(response.data);
 
     let result = [];
